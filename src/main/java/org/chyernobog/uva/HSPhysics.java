@@ -16,28 +16,29 @@
  */
 package org.chyernobog.uva;
 
-import java.util.Scanner;
-
 /**
- * Trivial problem: can you read file input and subtract...
- * @author turnau_r
+ * UVA problem 10071
+ * The algorithm here is simple calculation:
+ * r = v*t - (a*t^2/ 2)
+ * we are given v and t. We need to calculate a, and then
+ * re-run the equation with 2t.
  */
-public class Hashmat {
+public class HSPhysics {
     
-
+    /**
+     * v = at + v0. Solve for a
+     * 
+     * a = (v - v0)/t
+     */
+    public static int acc(int v, int t) {
+        return 0;
+    }
+    
+    public static int displ(int v, int t, int a) {
+        return 0;
+    }
+    
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        long hash, other, tot;
-        do {
-            hash = sc.nextLong();
-            other = sc.nextLong();
-            if (hash > other) {
-                tot = hash - other;
-            } else {
-                tot = other - hash;
-            }
-            System.out.println(tot);
-        } while(sc.hasNextLong());
         
     }
     
