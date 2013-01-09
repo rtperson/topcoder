@@ -16,29 +16,23 @@
  */
 package org.chyernobog.uva;
 
+import java.util.Scanner;
+
 /**
  * UVA problem 10071
- * The algorithm here is simple calculation:
- * r = v*t - (a*t^2/ 2)
- * we are given v and t. We need to calculate a, and then
- * re-run the equation with 2t.
  */
 public class HSPhysics {
     
-    /**
-     * v = at + v0. Solve for a
-     * 
-     * a = (v - v0)/t
-     */
-    public static int acc(int v, int t) {
-        return 0;
-    }
-    
-    public static int displ(int v, int t, int a) {
-        return 0;
-    }
     
     public static void main(String[] args) {
+        int s, v, t;
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNextInt()) {
+            v = sc.nextInt();
+            t = sc.nextInt();
+            s = 2 * t * v;
+            System.out.println(s);
+        }
         
     }
     
