@@ -18,68 +18,55 @@ package org.chyernobog.uva;
 
 import java.util.Scanner;
 
-/**
- * I'm failing on edge cases here. Need to take it to pen and paper and
- * figure out where I'm failing.
- * @author turnau_r
- */
-public class PrimaryArithmetic {
+class PrimaryArithmetic {
 
     public static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
-//        Scanner sc = new Scanner("999743 859\n" // 6 carries
-//                + "123 456\n"                   // no carries
-//                + "555 555\n"                   // 3 carries
-//                + "123 594\n"                   // 1 carry
-//                + "1234567890 9876543210\n"     // 9 carries
-//                + "2 9876543210\n"              // no carries
-//                + "909 909\n"                   // 2 carries
-//                + "0 0");
+        Scanner sc = new Scanner(System.in);
 
-        Scanner sc = new Scanner("123 456\n"      //No carry operation. 
-                + "555 555\n"                     // 3 carry operations
-                + "\n"                            
-                + "123 594\n"                     // 1 carry operation
-                + "1234 5678910\n"                // 
-                + "12354 9125478654\n"
-                + "321456 21\n"
-                + "56324\n"
-                + "987\n"
-                + "1 9\n"
-                + "333 0\n"
-                + "0 1\n"
-                + "11 99\n"
-                + "\n"
-                + "9999999999\n"
-                + "9999999999\n"
-                + "9999999999 1\n"
-                + "\n"
-                + "99999999 1\n"
-                + "0 0\n");
+//        Scanner sc = new Scanner("123 456\n"        // No carry operation.
+//                + "555 555\n"                       // 3 carry operations.
+//                + "\n"
+//                + "123 594\n"                       // 1 carry operation.
+//                + "1234 5678910\n"                  // 2 carry operations.
+//                + "12354 9125478654\n"              // 3 carry operations.
+//                + "321456 21\n"                     // No carry operation.
+//                + "56324\n"                         // 3 carry operations. (combined with next number)
+//                + "987\n"
+//                + "1 9\n"                           // 1 carry operation.
+//                + "333 0\n"                         // No carry operation.
+//                + "0 1\n"                           // No carry operation.
+//                + "11 99\n"                         // 2 carry operations.
+//                + "\n"
+//                + "9999999999\n"                    // 10 carry operations (combined with next number)
+//                + "9999999999\n"
+//                + "9999999999 1\n"                  // 10 carry operations (combined with next number)
+//                + "\n"
+//                + "99999999 1\n"                    // 8 carry operations
+//                + "909 909\n"
+//                + "445 555\n"
+//                + "000 000\n"
+//                + "0 0\n");
 
-        String s;
         long a, b;
         long moda, modb;
-        int digits;
         int count;
         boolean carry = false;
-        String[] nums;
-        while (sc.hasNextLine()) {
+        while (true) {
             count = 0;
-            s = sc.nextLine();
-            if (s.isEmpty()) continue;
-            nums = s.split(" ");
-            if (nums.length < 2) continue;
-            if (nums[0].equals("0") && nums[1].equals("0")) {
-                break;
+            a = sc.nextLong();
+            b = sc.nextLong();
+            
+            if (a == 0 && b == 0) {
+                return;
             }
-            a = Long.parseLong(nums[0]);
-            b = Long.parseLong(nums[1]);
 
-            digits = Math.min(nums[0].length(), nums[1].length());
-            for (int x = 0; x < digits; x++) {
+            // get count of carry operations by modulus
+            while(a != 0 && b != 0) {
                 moda = a % 10;
                 modb = b % 10;
+                if (carry) {
+                    moda++;
+                }
                 if ((moda + modb) > 9) {
                     carry = true;
                     count++;
@@ -90,6 +77,8 @@ public class PrimaryArithmetic {
                 b /= 10;
             }
 
+            // if we're done, and we're still in a carry, increase count by 
+            // number of nines to the left of the remaining value
             if (carry) {
                 if (b != 0) {
                     a = b;
@@ -97,14 +86,9 @@ public class PrimaryArithmetic {
                 while ((a % 10) == 9) {
                     count++;
                     a /= 10;
-                    if (a == 0) {
-                        count++;
-                    }
                 }
-
             }
-
-
+            
             if (count > 0) {
                 if (count == 1) {
                     System.out.println(count + " carry operation.");
@@ -115,7 +99,6 @@ public class PrimaryArithmetic {
             } else {
                 System.out.println("No carry operation.");
             }
-
         }
     }
 }
