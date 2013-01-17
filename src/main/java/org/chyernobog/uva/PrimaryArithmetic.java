@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 turnau_r
+ * Copyright (C) 2013 roger
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,9 +14,15 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package org.chyernobog.uva;
 
 import java.util.Scanner;
+
+/**
+ *
+ * @author roger
+ */
 
 class PrimaryArithmetic {
 
@@ -66,7 +72,7 @@ class PrimaryArithmetic {
             }
 
             // get count of carry operations by modulus
-            while(a != 0 && b != 0) {
+            while (a != 0 && b != 0) {
                 moda = a % 10;
                 modb = b % 10;
                 if (carry) {
