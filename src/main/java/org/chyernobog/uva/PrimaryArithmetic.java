@@ -21,31 +21,35 @@ import java.util.Scanner;
 class PrimaryArithmetic {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        //Scanner sc = new Scanner(System.in);
+        
+//        Scanner sc = new Scanner("5 4\n"                       // 1 carry operation.
+//        + "9 9\n"
+//        + "0 0\n");
 
-//        Scanner sc = new Scanner("123 456\n"        // No carry operation.
-//                + "555 555\n"                       // 3 carry operations.
-//                + "\n"
-//                + "123 594\n"                       // 1 carry operation.
-//                + "1234 5678910\n"                  // 2 carry operations.
-//                + "12354 9125478654\n"              // 3 carry operations.
-//                + "321456 21\n"                     // No carry operation.
-//                + "56324\n"                         // 3 carry operations. (combined with next number)
-//                + "987\n"
-//                + "1 9\n"                           // 1 carry operation.
-//                + "333 0\n"                         // No carry operation.
-//                + "0 1\n"                           // No carry operation.
-//                + "11 99\n"                         // 2 carry operations.
-//                + "\n"
-//                + "9999999999\n"                    // 10 carry operations (combined with next number)
-//                + "9999999999\n"
-//                + "9999999999 1\n"                  // 10 carry operations (combined with next number)
-//                + "\n"
-//                + "99999999 1\n"                    // 8 carry operations
-//                + "909 909\n"
-//                + "445 555\n"
-//                + "000 000\n"
-//                + "0 0\n");
+        Scanner sc = new Scanner("123 456\n"        // No carry operation.
+                + "555 555\n"                       // 3 carry operations.
+                + "\n"
+                + "123 594\n"                       // 1 carry operation.
+                + "1234 5678910\n"                  // 2 carry operations.
+                + "12354 9125478654\n"              // 3 carry operations.
+                + "321456 21\n"                     // No carry operation.
+                + "56324\n"                         // 3 carry operations. (combined with next number)
+                + "987\n"
+                + "1 9\n"                           // 1 carry operation.
+                + "333 0\n"                         // No carry operation.
+                + "0 1\n"                           // No carry operation.
+                + "11 99\n"                         // 2 carry operations.
+                + "\n"
+                + "9999999999\n"                    // 10 carry operations (combined with next number)
+                + "9999999999\n"
+                + "9999999999 1\n"                  // 10 carry operations (combined with next number)
+                + "\n"
+                + "99999999 1\n"                    // 8 carry operations
+                + "909 909\n"
+                + "445 555\n"
+                + "000 000\n"
+                + "0 0\n");
 
         long a, b;
         long moda, modb;
@@ -53,6 +57,7 @@ class PrimaryArithmetic {
         boolean carry = false;
         while (true) {
             count = 0;
+            carry = false;
             a = sc.nextLong();
             b = sc.nextLong();
             
