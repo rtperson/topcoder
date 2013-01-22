@@ -1,3 +1,6 @@
+// I'm keeping this list for historical reasons: the lack of large numbers that were not multiples of 5 tipped me off
+// to a problem in my queue.
+
 The 1 'th ugly number is 1.
 The 2 'th ugly number is 2.
 The 3 'th ugly number is 3.

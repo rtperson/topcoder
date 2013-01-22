@@ -16,9 +16,9 @@
  */
 package org.chyernobog.uva;
 
-import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Set;
 
@@ -37,24 +37,27 @@ public class UglyNumbers {
     public static void main(String[] args) {
         Set<Long> uglies = new HashSet<Long>();
         long next = 0L;
+        long twox, threex, fivex;
 
         // do a simple BFS -- put first elt on a queue
-        Queue<Long> ugQueue = new ArrayDeque<Long>();
+        Queue<Long> ugQueue = new PriorityQueue<Long>();
 
         ugQueue.add(1L);
 
         while (!ugQueue.isEmpty() && uglies.size() < 1500) {
             next = ugQueue.poll();
             uglies.add(next);
-            if (!ugQueue.contains(next * 2L)) {
-                ugQueue.add(next * 2L);
+            twox = next * 2L;
+            if (!ugQueue.contains(twox)) {
+                ugQueue.add(twox);
             }
-            if (!ugQueue.contains(next * 3L)) {
-                ugQueue.add(next * 3L);
+            threex = next * 3L;
+            if (!ugQueue.contains(threex)) {
+                ugQueue.add(threex);
             }
-            
-            if (!ugQueue.contains(next * 5L)) {
-                ugQueue.add(next * 5L);
+            fivex = next * 5L;
+            if (!ugQueue.contains(fivex)) {
+                ugQueue.add(fivex);
             }
         }
 
@@ -64,9 +67,9 @@ public class UglyNumbers {
 
         Arrays.sort(ugs);
 
-//        for (int x = 0; x < ugs.length; x++) {
-//            System.out.println("The " + (x + 1) + " 'th ugly number is " + ugs[x] + ".");
-//        }
+        for (int x = 0; x < ugs.length; x++) {
+            System.out.println("The " + (x + 1) + " 'th ugly number is " + ugs[x] + ".");
+        }
 
         System.out.println("The 1500'th ugly number is " + ugs[1499] + ".");
 
