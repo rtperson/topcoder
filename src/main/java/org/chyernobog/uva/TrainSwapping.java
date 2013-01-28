@@ -19,31 +19,46 @@ package org.chyernobog.uva;
 import java.util.Scanner;
 
 /**
- *
+ * Bubble sort. That's it.
  * @author turnau_r
  */
 public class TrainSwapping {
 
     public static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
-        Scanner sc = new Scanner("3\n"
-                + "3\n"
-                + "1 3 2\n"
-                + "4\n"
-                + "4 3 2 1\n"
-                + "2\n"
-                + "2 1\n");
+        Scanner sc = new Scanner(System.in);
+//        Scanner sc = new Scanner("3\n"
+//                + "3\n"
+//                + "1 3 2\n"
+//                + "4\n"
+//                + "4 3 2 1\n"
+//                + "2\n"
+//                + "2 1\n");
         int tests = sc.nextInt();
 
         for (int x = 0; x < tests; x++) {
             int cars = sc.nextInt();
+            int[] train = new int[cars];
             for (int y = 0; y < cars; y++) {
                 // add cars to array
+                train[y] = sc.nextInt();
             }
-            // push first car to priority queue
-            // determine the total hamming distance of the cars
-            // generate a list of swaps with new hamming distances
-            // add new list to priority queue, sorted on hamming distance
+            boolean swapped = true;
+            int j = 0, count = 0;
+            int tmp;
+            while(swapped) {
+                swapped = false;
+                j++;
+                for (int i = 0; i < train.length - j; i++) {
+                    if (train[i] > train[i+1]) {
+                        tmp = train[i];
+                        train[i] = train[i + 1];
+                        train[i + 1] = tmp;
+                        swapped = true;
+                        count++;
+                    }
+                }
+            }
+            System.out.println("Optimal train swapping takes " + count + " swaps.");
         }
 
     }
