@@ -19,22 +19,35 @@ package org.chyernobog.uva;
 import java.util.Scanner;
 
 /**
- * This one ended up being much easier in C++, due to character encoding.
+ * Yet another problem that is far easier in C++ -- so much, that I'm 
+ * going to switch to that language now.
  * @author turnau_r
  */
-public class Decoder {
-
+public class Wertyu {
+    
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String s;
-        while (sc.hasNext()) {
-            s = sc.nextLine();
+//        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner("O S, GOMR YPFSU/\n");
+        
+        String werts = "`1234567890-="
+                     + "QWERTYUIOP[]\\" 
+                     + "ASDFGHJKL;\'"
+                     + "ZXCVBNM,./";
+        
+        while(sc.hasNextLine()) {
+            String s = sc.nextLine();
             char[] cs = s.toCharArray();
-            for (int x = 0; x < cs.length; x++) {
-                cs[x] = (char) (cs[x] - 7);
-            }
-            System.out.println(new String(cs));
-        }
 
+            for (int x = 0; x < cs.length; x++) {
+                if (cs[x] != ' ') {
+                    int idx = werts.indexOf(cs[x]);
+                    System.out.print(werts.charAt(idx-1));
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
     }
+    
 }
