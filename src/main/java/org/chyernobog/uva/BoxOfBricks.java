@@ -27,14 +27,21 @@ public class BoxOfBricks {
     public static void main(String[] args) {
 //        Scanner sc = new Scanner(System.in);
         Scanner sc = new Scanner("6\n5 2 4 1 7 5\n0");    
-        
-        while (sc.nextInt() != 0) {
-            int blks = sc.nextInt();
+        int blks = 0;
+        while ((blks = sc.nextInt()) != 0) {
+            int first = sc.nextInt();
             int[] st = new int[blks];
-            for (int x = 0; x < blks; x++) {
+            st[0] = first;
+            int height = first;
+            System.out.println("st[" + 0 + "]: " + st[0]);
+            for (int x = 1; x < blks; x++) {
                 st[x] = sc.nextInt();
+                height += st[x];
                 System.out.println("st[" + x + "]: " + st[x]);
+                
             }
+            System.out.println("height:" + height/blks);
+            first = 0;
         }
     }
     
