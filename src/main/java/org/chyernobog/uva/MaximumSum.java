@@ -23,9 +23,19 @@ import java.util.Scanner;
  * @author turnau_r
  */
 public class MaximumSum {
-    
+
     public static void main(String[] args) {
-        
+//        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner("4\n0 -2 -7  0 9  2 -6  2\n-4  1 -4  1 -1\n8  0 -2");  
+        int n = sc.nextInt();
+        int[][] grid = new int[n][n];
+        for (int y = 0; y < n; y++) {
+            for (int x = 0; x < n; x++) {
+                grid[y][x] = sc.nextInt();
+                System.out.printf("%4d", grid[y][x]);
+            }
+            System.out.println();
+        }
+//        System.out.println(grid);
     }
-    
 }
