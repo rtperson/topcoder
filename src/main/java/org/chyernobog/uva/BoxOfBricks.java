@@ -1,5 +1,9 @@
 /*
+ <<<<<<< HEAD
  * Copyright (C) 2013 turnau_r
+ =======
+ * Copyright (C) 2013 roger
+ >>>>>>> 6398590cad545ed6d785fc3cf4fa6be6f97911cc
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,15 +24,40 @@ import java.util.Scanner;
 
 /**
  *
- * @author turnau_r
+ * @author roger
  */
 public class BoxOfBricks {
-    Scanner sc = new Scanner(System.in);
 
-    public void main(String[] args) {
-        while (sc.nextInt() != 0) {
-            
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+//        Scanner sc = new Scanner("6\n5 2 4 1 7 5\n3\n7 1 1\n0");    
+        int blks;
+        int set = 1;
+        while ((blks = sc.nextInt()) != 0) {
+            int first = sc.nextInt();
+            int[] st = new int[blks];
+            st[0] = first;
+            int height = first;
+            for (int x = 1; x < blks; x++) {
+                st[x] = sc.nextInt();
+                height += st[x];
+            }
+            int level = height / blks;
+            int totmoves = 0;
+            for (int x = 0; x < blks; x++) {
+                if (st[x] < level) {
+                    totmoves += level - st[x];
+                }
+            }
+            System.out.println("Set #" + set++);
+            System.out.println("The minimum number of moves is " + totmoves + ".");
+            System.out.println();
+            blks = 0;
+            first = 0;
+            height = 0;
+            level = 0;
+            totmoves = 0;
+            st = null;
         }
     }
-    
 }
