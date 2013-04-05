@@ -23,6 +23,8 @@ import java.util.Scanner;
  * @author turnau_r
  */
 public class MaximumSum {
+    
+    
 
     public static void main(String[] args) {
 //        Scanner sc = new Scanner(System.in);
@@ -38,4 +40,16 @@ public class MaximumSum {
         }
 //        System.out.println(grid);
     }
+    
+    private void kadane(int[] arr) {
+        int maxSum = Integer.MIN_VALUE;
+        int maxBegin = 0;
+        int maxEnd = 0;
+        int curMaxSum = 0;
+        int curStartIndex = 0;
+        for (int i = 0; i < arr.length; i++) {
+            curMaxSum += arr[i];
+        }
+    }
+    
 }
