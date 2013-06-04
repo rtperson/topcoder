@@ -25,15 +25,15 @@ import java.util.Scanner;
 public class OddSum {
 
     public static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
-        Scanner sc = new Scanner("4\n1\n5\n3\n5\n1\n100\n55\n100"); 
+        Scanner sc = new Scanner(System.in);
+//        Scanner sc = new Scanner("5\n1\n5\n3\n5\n1\n100\n55\n100\n4\n7"); 
         
         int t = sc.nextInt();
         for (int x = 0; x < t; x++) {
             int a = sc.nextInt();
             int b = sc.nextInt();
             int btms = (b + 1) / 2;
-            int atms = (a - 1) / 2;
+            int atms = a / 2;
             int res = (int)(Math.pow(btms, 2)) - (int)(Math.pow(atms, 2));
             
             System.out.println("Case " + (x+1) + ": " + res);
