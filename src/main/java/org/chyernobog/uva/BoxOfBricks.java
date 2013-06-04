@@ -1,9 +1,5 @@
 /*
- <<<<<<< HEAD
  * Copyright (C) 2013 turnau_r
- =======
- * Copyright (C) 2013 roger
- >>>>>>> 6398590cad545ed6d785fc3cf4fa6be6f97911cc
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
