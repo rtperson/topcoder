@@ -22,7 +22,7 @@ import java.util.Scanner;
  *
  * @author rturnau001
  */
-public class Main {
+public class RelationalOperators {
 
     public static void main(String[] args) {
 
