@@ -48,7 +48,6 @@ public class JasyptTest {
         System.out.println("plain text: " + plainText);
         
         StandardPBEStringEncryptor encryptor = new StandardPBEStringEncryptor();
-        //encryptor.setProviderName("SunMSCAPI");
         encryptor.setAlgorithm("PBEWithSHA1AndRC2_40");
         encryptor.setPassword(TEST_PASSWORD);
         encryptor.setSaltGenerator(new RandomSaltGenerator());
